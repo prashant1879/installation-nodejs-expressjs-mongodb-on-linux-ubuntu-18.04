@@ -1,0 +1,50 @@
+########################################################################
+Installation of NodeJS + MongoDB on linux Ubuntu 18.04 
+########################################################################
+
+1. sudo apt-get update 
+2. sudo apt-get upgrade
+3. sudo apt-get install nodejs
+4. sudo apt-get update 
+5. node -v ( check node version ) 
+6. npm -v ( check npm version ) 
+7. cd /var/www/html/folder
+8. npm install express --save ( for installation express js ) 
+
+# for any module installation npm install <module> --save ( if you want to save in composer.json too ) 
+if you dont want to save then npm install express --no-save
+
+9. sudo apt-get update 
+
+now we are going to install mongoDB on linux Ubuntu 18.04
+
+10. wget -qO - https://www.mongodb.org/static/pgp/server-3.2.asc | sudo apt-key add -
+11. echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+12. sudo apt-get update
+13. sudo apt-get install -y mongodb-org
+14. sudo apt-get install -y mongodb-org=3.2.22 mongodb-org-server=3.2.22 mongodb-org-shell=3.2.22 mongodb-org-mongos=3.2.22 mongodb-org-tools=3.2.22
+
+#Pin a specific version of MongoDB. (Optional)
+15. 
+echo "mongodb-org hold" | sudo dpkg --set-selections
+echo "mongodb-org-server hold" | sudo dpkg --set-selections
+echo "mongodb-org-shell hold" | sudo dpkg --set-selections
+echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+
+16. sudo service mongod start ( start mongodb ) 
+17. [initandlisten] waiting for connections on port <port> ( Verify that MongoDB has started successfully )
+18. sudo service mongod stop ( Stop MongoDB.) 
+19. sudo service mongod restart ( Restart MongoDB ) 
+
+###################
+# Unstallation Step for mongodb 
+###################
+1. sudo service mongod stop
+2. sudo apt-get purge mongodb-org*
+3. sudo rm -r /var/log/mongodb
+4. sudo rm -r /var/lib/mongodb
+
+
+
+
